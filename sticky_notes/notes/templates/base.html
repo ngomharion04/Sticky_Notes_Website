@@ -1,0 +1,32 @@
+<!-- notes/templates/base.html -->
+<!DOCTYPE html>  
+{% load static %}
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>{% block title%}Sticky Notes{% endblock %}</title>  
+    <link rel="stylesheet" href="{% static 'notes/styles.css' %}">  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+</head>  
+<body class = "body">  
+    <!-- Header Section -->  
+    <header>  
+        <h1>Sticky Notes</h1>  
+        <p>Keep your thoughts organised</p>  
+    </header>  
+
+    <!-- Main Content Section -->
+    <div class="container">  
+        {% block content %}  
+        {% endblock %}  
+    </div>  
+
+    <!-- Footer Section -->  
+    <footer>  
+        <p>&copy; 2025 Sticky Notes Website. All Rights Reserved.</p>  
+        <p>Contact us at <a href="mailto:StickyNotes@gmail.com">StickyNotes@gmail.com</a></p>  
+        <p>Made with ❤️ by Mharion Ngo</p>
+    </footer> 
+</body>  
+</html>  

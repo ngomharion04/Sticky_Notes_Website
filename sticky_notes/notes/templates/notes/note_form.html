@@ -1,0 +1,17 @@
+<!-- notes/templates/notes/note_form.html -->
+{% extends 'base.html' %}  
+
+{% block content %}  
+<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Note</h1>  
+<form method="post">  
+    {% csrf_token %}  
+    {{ form.title.label_tag }}  
+    {{ form.title }} <!-- Renders input field for title -->  
+    
+    {{ form.content.label_tag }}  
+    {{ form.content }} <!-- Renders textarea for content -->  
+    
+    <button type="submit" class="btn btn-success">Save</button>  
+    <a href="{% url 'note_list' %}" class="btn btn-secondary">Cancel</a>  
+</form>  
+{% endblock %}  

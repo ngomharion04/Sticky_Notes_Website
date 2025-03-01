@@ -1,0 +1,30 @@
+<!-- notes/templates/notes/note_list.html -->
+{% extends 'base.html' %}  
+{% load static %}
+
+{% block content %}
+<div class="add-note-container">  
+    <a href="{% url 'note_create' %}" class="add-note-btn">  
+        <img src="{% static 'admin/img/icon-addlink.svg' %}" alt="Add Note Icon" class="add-note-icon" />  
+        <span class="add-note-label">Add New Note</span>
+    </a>  
+</div>
+<div class="notes"> <!-- This container will use the new CSS grid -->  
+    {% for note in notes %}  
+        <div class="note">  
+            <div class="note-content">  
+                <h2>{{ note.title }}</h2>  
+                <p>{{ note.content }}</p>  
+                <p><small>{{ note.created_at }}</small></p>  
+            </div>  
+            <div class="note-footer">  
+                <form action="{% url 'note_delete' note.pk %}" method="post">  
+                    {% csrf_token %}  
+                    <button type="submit">Delete</button>  
+                </form>  
+                <a href="{% url 'note_update' note.pk %}" class="btn btn-warning">Edit</a>  
+            </div>  
+        </div>  
+    {% endfor %}  
+</div>  
+{% endblock %}  
